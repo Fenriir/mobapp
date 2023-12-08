@@ -1,0 +1,110 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>detail</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">detail</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <div class="sideBySide">
+    <h1 class="header">{{allData.name}}</h1>
+    <!-- <img class="detailImage" src="https://i.pinimg.com/564x/e4/f3/0b/e4f30b56fc5b7684e0da20ac65e485e3.jpg"/> -->
+
+    
+  </div>
+
+  <div id="columns">
+    <div id="left">
+
+      <caption>AGE</caption>
+      <h3>{{age}}</h3>
+
+      <caption>SPEED</caption>
+      <h3>{{speed}}</h3>
+
+      <caption>ALIGNMENT</caption>
+      <h3>{{alignment}}</h3>
+
+      <caption>SIZE</caption>
+      <h3>{{size}}</h3>
+      <h3>{{size_description}}</h3>
+    <!-- </div> -->
+
+    <!-- <div id="left"> -->
+      
+      <caption>ABILITY BONUSES</caption>
+      <div *ngFor="let item of ability_bonuses">
+        <h3>{{ item["ability_score"]["name"]}}</h3>
+      </div>
+
+      <caption>PROFICIENCIES</caption>
+      <div *ngFor="let item of starting_proficiencies">
+        <h3>{{ item["name"]}}</h3>
+      </div>
+
+      <caption>LANGUAGES</caption>
+      <div *ngFor="let item of languages">
+        <h3>{{ item["name"]}}</h3>
+      </div>
+
+      <caption>TRAITS</caption>
+      <div *ngFor="let item of traits">
+        <h3>{{ item["name"]}}</h3>
+      </div>
+    </div>
+  </div>
+
+  <style>
+    .sideBySide{
+      display: flex;
+      align-items: center;
+      /* flex-wrap: wrap; */
+      margin-top: 1rem;
+    }
+
+    .detailImage{
+      width:200px;
+    }
+
+    .header{
+      font-size: 4rem;
+      font-weight: bold;
+      color:#3498db;
+      background: linear-gradient(to left, #3498db, #2980b9);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-left: 1rem;
+      margin-right: 3rem;
+      padding-left: 5%;
+      padding-top: 5%;
+    }
+
+    #columns div h3{
+      margin:1rem;
+      background: #34495e;
+      width: 12rem;
+      border-radius: 6px;
+      padding: 0.3rem;
+      align-items: center;
+    }
+
+    #columns{
+      display: flex;
+      padding: 5%;
+      align-items: center;
+    }
+
+    /*less than 700px make 1 column*/
+    @media only screen and (max-width: 700px){
+      #colums{
+        flex-direction: column;
+      }
+    }
+  </style>
+
+</ion-content>

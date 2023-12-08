@@ -1,0 +1,35 @@
+<p>
+  Create new charachter
+</p>
+
+<ion-content>
+  <ion-button (click)="dismissModal()">X</ion-button>
+
+    <ion-list>
+      <ion-input type="text" [(ngModel)]="inputed_word" text-right id="input">Name</ion-input>
+
+      <h3>Races</h3>
+      <ion-radio-group>
+        <ion-item *ngFor="let item of race">
+          <ion-label>{{ item.label }}</ion-label>
+          <ion-radio> </ion-radio>
+        </ion-item>
+  
+      </ion-radio-group>
+<br>
+<h3>Classes</h3>
+      <ion-radio-group>
+        <ion-item *ngFor="let item of class">
+          <ion-label>{{ item.label }}</ion-label>
+          <ion-radio> </ion-radio>
+        </ion-item>
+  
+      </ion-radio-group>
+    </ion-list>
+
+    <ion-button (click)="submit()">Create</ion-button>
+ </ion-content>
+
+
+
+

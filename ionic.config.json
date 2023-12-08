@@ -1,0 +1,7 @@
+{
+  "name": "countruesApp",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}

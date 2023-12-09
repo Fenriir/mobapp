@@ -26,9 +26,9 @@
         {{ item.name }}
       </ion-item>  -->
       <div *ngIf="item.race">
-        <ion-item [routerLink]="['/detail', item.race]"
+        <ion-item [routerLink]="['/detail', item.name]"
                   (click)="sendData(item)">
-                    <h2>{{ item.race }}</h2> 
+                    <h2>{{ item.race.index }}</h2> 
         </ion-item> 
       </div>
     <!-- <ion-button (click)="deleteItem(item.query)">Delete</ion-button>  -->

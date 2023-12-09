@@ -9,10 +9,9 @@
       <ion-input type="text" [(ngModel)]="inputed_word" text-right id="input">Name</ion-input>
 
       <h3>Races</h3>
-      <ion-radio-group>
-        <!-- <ion-radio-group [(ngModel)]="race"> -->
+      <ion-radio-group [(ngModel)]="rasa">
         <ion-item *ngFor="let item of race">
-          <ion-label>{{ item.label }}</ion-label>
+          <ion-label>{{ item.label}}</ion-label>
           <ion-radio value="{{item.label}}"> </ion-radio>
         </ion-item>
   

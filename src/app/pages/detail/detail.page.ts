@@ -26,7 +26,8 @@ export class DetailPage implements OnInit {
     ) { }
 
   ngOnInit() {
-    this.allData = this.placeService.data.races;
+    //this.allData = this.placeService.data.race;
+    this.allData = this.placeService.data;
 
     console.log("All data");
     console.log(this.allData);
@@ -35,17 +36,17 @@ export class DetailPage implements OnInit {
     //this.imageURL = url;
     //this.myDomain = this.allData.tld[0];
 
-    this.name = this.allData.name;
-    this.speed = this.allData.speed;
-    this.age = this.allData.age;
-    this.alignment = this.allData.alignment;
-    this.size_description = this.allData.size_description;
-    this.size= this.allData.size;
+    this.name = this.allData.race.name;
+    this.speed = this.allData.race.speed;
+    this.age = this.allData.race.age;
+    this.alignment = this.allData.race.alignment;
+    this.size_description = this.allData.race.size_description;
+    this.size= this.allData.race.size;
 
-    this.ability_bonuses = this.allData.ability_bonuses;
-    this.starting_proficiencies = this.allData.starting_proficiencies;
-    this.languages = this.allData.languages;
-    this.traits = this.allData.traits;
+    this.ability_bonuses = this.allData.race.ability_bonuses;
+    this.starting_proficiencies = this.allData.race.starting_proficiencies;
+    this.languages = this.allData.race.languages;
+    this.traits = this.allData.race.traits;
     
    // console.log(this.ability_bonuses);
    // this.starting_proficiencies = this.allData.starting_proficiencies[0].name;

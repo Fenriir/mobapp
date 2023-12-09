@@ -99,7 +99,11 @@ export class CountriesModalComponent {
       //class: "bard",
     }
    // console.log(inputed.race);
-    this.modalCTRL.dismiss([inputed], "location");
+  // if (this.inputed_word.trim() !="")
+   if (inputed.name.trim() !="")
+      this.modalCTRL.dismiss([inputed], "location");
+    else
+    this.modalCTRL.dismiss([inputed], "error");
   }
 
   

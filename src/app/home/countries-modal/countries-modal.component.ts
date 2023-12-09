@@ -92,9 +92,9 @@ export class CountriesModalComponent {
   //   this.modalCTRL.dismiss([raceItems],"location");
  // this.modalCTRL.dismiss({raceItems: raceItems, classItems : classItems},"location");
     var inputed = {
-      label: this.inputed_word,
-     // apiChoice: this.apiChoice,
-      checked: false,
+      name: this.inputed_word,
+      race: "dwarf", //pak predelat
+      class: "bard",
     }
     this.modalCTRL.dismiss([inputed], "location");
   }

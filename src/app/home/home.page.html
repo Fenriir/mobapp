@@ -19,18 +19,18 @@
 
   <div *ngIf="countriesDataArray.length > 0">
     <ion-item *ngFor="let item of countriesDataArray">
-      <h2>{{item.query}}</h2>
+      <h2>{{item.name}}</h2>
 
       <!-- <ion-item [routerLink]="['/detail', item.name]" 
       (click)="sendData(item)">
         {{ item.name }}
       </ion-item>  -->
-      <div *ngIf="item.result.length > 0">
-      <ion-item [routerLink]="['/detail', item.result[0].word]"
-                (click)="sendData(item)">
-                  <h2>{{ item.result[0].word }}</h2> 
-      </ion-item> 
-    </div>
+      <div *ngIf="item.race">
+        <ion-item [routerLink]="['/detail', item.race.index]"
+                  (click)="sendData(item)">
+                    <h2>{{ item.race.name }}</h2> 
+        </ion-item> 
+      </div>
     <!-- <ion-button (click)="deleteItem(item.query)">Delete</ion-button>  -->
  
     </ion-item>

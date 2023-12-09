@@ -6,13 +6,14 @@
   <ion-button (click)="dismissModal()">X</ion-button>
 
     <ion-list>
-      <!-- <ion-input type="text" [(ngModel)]="inputed_word" text-right id="input">Name</ion-input> -->
+      <ion-input type="text" [(ngModel)]="inputed_word" text-right id="input">Name</ion-input>
 
       <h3>Races</h3>
       <ion-radio-group>
+        <!-- <ion-radio-group [(ngModel)]="race"> -->
         <ion-item *ngFor="let item of race">
           <ion-label>{{ item.label }}</ion-label>
-          <ion-radio> </ion-radio>
+          <ion-radio value="{{item.label}}"> </ion-radio>
         </ion-item>
   
       </ion-radio-group>

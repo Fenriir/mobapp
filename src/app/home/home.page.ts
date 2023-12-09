@@ -12,6 +12,7 @@ import { Preferences } from '@capacitor/preferences';
 })
 export class HomePage {
   countriesDataArray: any[] = [];
+  curr_name: string="";
 
   constructor(
     public modalCtrl: ModalController, 
@@ -60,7 +61,7 @@ export class HomePage {
     for(var c of input){
       const url_races=`https://www.dnd5eapi.co/api/races/${c.race.toLowerCase()}`;
       //const url_classes=`https://www.dnd5eapi.co/api/classes${c.class.toLowerCase()}`;
-     // this.curr_name = c.name;
+      this.curr_name = c.name;
 
       var race_data;
       var class_data;
@@ -68,19 +69,20 @@ export class HomePage {
       this.httpClient.get(url_races).subscribe(res => {
         console.log(res);
         this.countriesDataArray.push({
-         // name:   this.curr_name,
+          name:   this.curr_name,
           race:   res,
+          //class:  res2,
         });
+
+        const saveStoredItems = async() =>{
+          await Preferences.set({
+            key: "homeFetchData",
+            value: JSON.stringify(this.countriesDataArray)
+          });
+        }
+
+        saveStoredItems();
       });
-
-      const saveStoredItems = async() =>{
-        await Preferences.set({
-          key: "homeFetchData",
-          value: JSON.stringify(this.countriesDataArray)
-        });
-      }
-
-      saveStoredItems();
 
       // // this.httpClient.get(url_classes).subscribe(res => {
       // //   console.log(res);

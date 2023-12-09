@@ -15,6 +15,8 @@ export class CountriesModalComponent {
   class = this.getClasses();
   inputed_word: string = "";
   apiChoice: string = "";
+
+  rasa: string = "";
   
 //,private placeService: PlacesService
   constructor(private modalCTRL: ModalController) {
@@ -60,17 +62,17 @@ export class CountriesModalComponent {
         });
       }
   
-      if (value){
-        const classItems = JSON.parse(value);
-        this.class.forEach(item => {
-          item.checked = classItems.some((classItem: 
-            { class: string; }) => 
-            classItem.class ===  item.label);
-        })
-      }
+      // if (value){
+      //   const classItems = JSON.parse(value);
+      //   this.class.forEach(item => {
+      //     item.checked = classItems.some((classItem: 
+      //       { class: string; }) => 
+      //       classItem.class ===  item.label);
+      //   })
+      // }
       console.log(value);
     };
-   // getStoredItems();
+    getStoredItems();
   }
 
   dismissModal(){
@@ -79,7 +81,7 @@ export class CountriesModalComponent {
 
   submit(){
     const raceItems = this.race.filter((item)=>item.checked);
-    const classItems = this.class.filter((item)=>item.checked);
+   // const classItems = this.class.filter((item)=>item.checked);
 
     const saveStoredItems = async() =>{
       await Preferences.set({
@@ -93,9 +95,10 @@ export class CountriesModalComponent {
  // this.modalCTRL.dismiss({raceItems: raceItems, classItems : classItems},"location");
     var inputed = {
       name: this.inputed_word,
-      race: "dwarf", //pak predelat
-      class: "bard",
+      race: this.rasa, //pak predelat this.rasa
+      //class: "bard",
     }
+   // console.log(inputed.race);
     this.modalCTRL.dismiss([inputed], "location");
   }
 

@@ -12,14 +12,13 @@
   </ion-header>
 
   <div class="sideBySide">
-    <h1 class="header">{{allData.name}}</h1>
+    <h1 class="header">{{AllData.name}}</h1>
     <!-- <img class="detailImage" src="https://i.pinimg.com/564x/e4/f3/0b/e4f30b56fc5b7684e0da20ac65e485e3.jpg"/> -->
-
-    
   </div>
 
   <div id="columns">
     <div id="left">
+      <h2>{{rasa}}, {{class}}</h2>
 
       <caption>AGE</caption>
       <h3>{{age}}</h3>
@@ -33,9 +32,6 @@
       <caption>SIZE</caption>
       <h3>{{size}}</h3>
       <h3>{{size_description}}</h3>
-    <!-- </div> -->
-
-    <!-- <div id="left"> -->
       
       <caption>ABILITY BONUSES</caption>
       <div *ngFor="let item of ability_bonuses">
@@ -56,7 +52,38 @@
       <div *ngFor="let item of traits">
         <h3>{{ item["name"]}}</h3>
       </div>
+    <!-- </div> -->
+
+    <!-- <div id="right"> -->
+      
+      <caption>PROFICIENCIES</caption>
+      <div *ngFor="let item of proficiencies1">
+        <h3>{{ item["name"]}}</h3>
+      </div>
+
+      <caption>SAVING THROWS</caption>
+      <div *ngFor="let item of saving_throws">
+        <h3>{{ item["name"]}}</h3>
+      </div>
+
+      <caption>STARTING EQUIPMENT</caption>
+      <div *ngFor="let item of starting_equipment">
+        <h3>{{ item["equipment"]["name"]}}</h3>
+      </div>
+
+      <caption>MULTI CLASSING</caption>
+      <h2>prerequisites</h2>
+      <div *ngFor="let item of prerequisites">
+        <h3>{{ item["ability_score"]["name"]}}</h3>
+      </div>
+
+      <h2>proficiencies</h2>
+      <div *ngFor="let item of multi_proficiencies">
+        <h3>{{ item["name"]}}</h3>
+      </div>
+
     </div>
+
   </div>
 
   <style>

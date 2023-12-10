@@ -17,6 +17,7 @@ export class CountriesModalComponent {
   apiChoice: string = "";
 
   rasa: string = "";
+  classa: string = "";
   
 //,private placeService: PlacesService
   constructor(private modalCTRL: ModalController) {
@@ -62,14 +63,14 @@ export class CountriesModalComponent {
         });
       }
   
-      // if (value){
-      //   const classItems = JSON.parse(value);
-      //   this.class.forEach(item => {
-      //     item.checked = classItems.some((classItem: 
-      //       { class: string; }) => 
-      //       classItem.class ===  item.label);
-      //   })
-      // }
+      if (value){
+        const classItems = JSON.parse(value);
+        this.class.forEach(item => {
+          item.checked = classItems.some((classItem: 
+            { class: string; }) => 
+            classItem.class ===  item.label);
+        })
+      }
       console.log(value);
     };
     getStoredItems();
@@ -81,7 +82,7 @@ export class CountriesModalComponent {
 
   submit(){
     const raceItems = this.race.filter((item)=>item.checked);
-   // const classItems = this.class.filter((item)=>item.checked);
+    const classItems = this.class.filter((item)=>item.checked);
 
     const saveStoredItems = async() =>{
       await Preferences.set({
@@ -95,8 +96,8 @@ export class CountriesModalComponent {
  // this.modalCTRL.dismiss({raceItems: raceItems, classItems : classItems},"location");
     var inputed = {
       name: this.inputed_word,
-      race: this.rasa, //pak predelat this.rasa
-      //class: "bard",
+      race: this.rasa, 
+      class: this.classa,
     }
    // console.log(inputed.race);
   // if (this.inputed_word.trim() !="")

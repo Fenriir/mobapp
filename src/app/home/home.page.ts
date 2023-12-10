@@ -48,64 +48,71 @@ export class HomePage {
     }
   }
 
+  async deleteItem(word: String){
+    var index =  this.countriesDataArray.findIndex(x => x.name==word);
+    console.log(index);
+    this.countriesDataArray.splice(index, 1)
+    const saveStoredItems = async () => {
+      await Preferences.set({
+        key: "homeFetchData",
+        value: JSON.stringify(this.countriesDataArray)
+      });
+    };
+    saveStoredItems();
+  }
+
   sendData(data:any){
     this.placesService.data = data;
   }
 
   fetchData(input:any){
-    //console.log(input.map((c: {label: any;}) => c.label));
     console.log(input);
-    this.countriesDataArray=[];
+    //this.countriesDataArray=[];
 
     console.log(input)
     for(var c of input){
       const url_races=`https://www.dnd5eapi.co/api/races/${c.race.toLowerCase()}`;
-      //const url_classes=`https://www.dnd5eapi.co/api/classes${c.class.toLowerCase()}`;
+      const url_classes=`https://www.dnd5eapi.co/api/classes/${c.class.toLowerCase()}`;
       this.curr_name = c.name;
-
-      var race_data;
-      var class_data;
 
       this.httpClient.get(url_races).subscribe(res => {
         console.log(res);
-        this.countriesDataArray.push({
-          name:   this.curr_name,
-          race:   res,
-          //class:  res2,
+        
+        this.httpClient.get(url_classes).subscribe(res2 => {
+          console.log(res2);
+          this.countriesDataArray.push({
+            name:   this.curr_name,
+            race:   res,
+            class:  res2,
+          });
+  
+          const saveStoredItems = async() =>{
+            await Preferences.set({
+              key: "homeFetchData",
+              value: JSON.stringify(this.countriesDataArray)
+            });
+          }
+  
+          saveStoredItems();
         });
 
-        const saveStoredItems = async() =>{
-          await Preferences.set({
-            key: "homeFetchData",
-            value: JSON.stringify(this.countriesDataArray)
-          });
-        }
+        console.warn(this.countriesDataArray);
 
-        saveStoredItems();
+        // const saveStoredItems = async() =>{
+        //   await Preferences.set({
+        //     key: "homeFetchData",
+        //     value: JSON.stringify(this.countriesDataArray)
+        //   });
+        // }
+
+        // saveStoredItems();
       });
-
-      // // this.httpClient.get(url_classes).subscribe(res => {
-      // //   console.log(res);
-      // //   class_data = res;
-      // // });
-
-      // this.countriesDataArray.push({
-      //   race:   race_data,
-      // //  class:  class_data,
-      // });
-
-      // const saveStoredItems = async() =>{
-      //   await Preferences.set({
-      //     key: "homeFetchData",
-      //     value: JSON.stringify(this.countriesDataArray)
+      // this.httpClient.get(url_classes).subscribe(res2 => {
+      //   console.log(res2);
+      //   this.countriesDataArray.push({
+      //     name:   this.curr_name,
+      //     class:  res2,
       //   });
-      // }
-    
-      // saveStoredItems();
-
-      // this.httpClient.get(url_races).subscribe(res => {
-      //   console.log(res);
-      //   this.countriesDataArray.push(res);
 
       //   const saveStoredItems = async() =>{
       //     await Preferences.set({
@@ -113,25 +120,9 @@ export class HomePage {
       //       value: JSON.stringify(this.countriesDataArray)
       //     });
       //   }
-      
+
       //   saveStoredItems();
-
       // });
-      // this.httpClient.get(url_classes).subscribe(res => {
-      //   console.log(res);
-      //   this.countriesDataArray.push(res);
-
-      //   const saveStoredItems = async() =>{
-      //     await Preferences.set({
-      //       key: "homeFetchData",
-      //       value: JSON.stringify(this.countriesDataArray)
-      //     });
-      //   }
-      
-      //   saveStoredItems();
-
-      // });
-      console.warn(this.countriesDataArray);
     }
      console.log("Load data from API");
   }

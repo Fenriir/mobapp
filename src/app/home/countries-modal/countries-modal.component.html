@@ -3,28 +3,30 @@
 </p>
 
 <ion-content>
-  <ion-button (click)="dismissModal()">X</ion-button>
+  <ion-button (click)="dismissModal()" class="x">X</ion-button>
 
-    <ion-list>
-      <ion-input type="text" [(ngModel)]="inputed_word" text-right id="input">Name</ion-input>
-
-      <h3>Races</h3>
-      <ion-radio-group [(ngModel)]="rasa">
-        <ion-item *ngFor="let item of race">
-          <ion-label>{{ item.label}}</ion-label>
-          <ion-radio value="{{item.label}}"> </ion-radio>
-        </ion-item>
-  
-      </ion-radio-group>
+    <ion-list class="col">
+      <ion-input type="text" [(ngModel)]="inputed_word" text-right id="input" class="name"></ion-input>
+      <div class="col1">
+        <h3>Races</h3>
+        <ion-radio-group [(ngModel)]="rasa">
+          <ion-item *ngFor="let item of race">
+            <ion-label>{{ item.label}}</ion-label>
+            <ion-radio value="{{item.label}}" class="radio"> </ion-radio>
+          </ion-item>
+        </ion-radio-group>
+      </div>
       <br>
-      <h3>Classes</h3>
-            <ion-radio-group [(ngModel)]="classa">
-              <ion-item *ngFor="let item of class">
-                <ion-label>{{ item.label }}</ion-label>
-                <ion-radio value="{{item.label}}"> </ion-radio>
-              </ion-item>
-        
-            </ion-radio-group>
+      <div class="col2" >
+        <h3>Classes</h3>
+          <ion-radio-group [(ngModel)]="classa">
+            <ion-item *ngFor="let item of class">
+              <ion-label>{{ item.label }}</ion-label>
+              <ion-radio value="{{item.label}}" class="radio"> </ion-radio>
+            </ion-item>
+      
+          </ion-radio-group>
+        </div> 
     </ion-list>
 
     <ion-button (click)="submit()">Create</ion-button>

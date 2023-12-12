@@ -18,3 +18,34 @@
   .step.finish {
     background-color: #04AA6D;
   }
+
+ .x{
+    padding:1%;
+    //align-items: center;
+  }
+
+  .col{
+    display: flex;
+    flex-wrap: wrap; 
+  }
+
+  .col2{
+    margin-left: auto;
+    padding-right: 5%;
+    text-align: center;
+    width: 45%;
+  }
+
+  .col1{
+    margin-right: auto;
+    padding-left: 5%;
+    text-align: center;
+    width: 45%;
+  }
+  ion-radio.radio{
+    padding:2%;
+  }
+
+  .name{
+    align-items: center;
+  }

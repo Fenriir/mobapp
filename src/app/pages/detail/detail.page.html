@@ -1,24 +1,20 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-title>detail of character</ion-title>
+    <ion-title class="detchar">Detail of character</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">detail</ion-title>
-    </ion-toolbar>
-  </ion-header>
-
-  <div class="sideBySide">
-    <h1 class="header">{{AllData.name}}</h1>
-    <!-- <img class="detailImage" src="https://i.pinimg.com/564x/e4/f3/0b/e4f30b56fc5b7684e0da20ac65e485e3.jpg"/> -->
+  <div class="obr">
+    <div class="sideBySide">
+      <img class="detalImage" src="https://i.pinimg.com/564x/be/ba/82/beba822d59db36a7b76d375c0915d934.jpg"/>
+      <h1 class="header">{{AllData.name}}</h1>
+    </div>
   </div>
 
   <div id="columns">
     <div id="left">
-      <h2>{{rasa}}, {{class}}</h2>
+      <h2 class="h2">{{rasa}}, {{class}}</h2>
 
       <caption>AGE</caption>
       <h3>{{age}}</h3>
@@ -72,66 +68,21 @@
       </div>
 
       <caption>MULTI CLASSING</caption>
-      <h2>prerequisites</h2>
+      <h4>prerequisites</h4>
       <div *ngFor="let item of prerequisites">
         <h3>{{ item["ability_score"]["name"]}}</h3>
       </div>
 
-      <h2>proficiencies</h2>
+      <h4>proficiencies</h4>
       <div *ngFor="let item of multi_proficiencies">
         <h3>{{ item["name"]}}</h3>
       </div>
 
+      <caption>SPELLCASTING ABILITY</caption>
+      <h3>{{ spellcasting}}</h3>
+
     </div>
 
   </div>
-
-  <style>
-    .sideBySide{
-      display: flex;
-      align-items: center;
-      /* flex-wrap: wrap; */
-      margin-top: 1rem;
-    }
-
-    .detailImage{
-      width:200px;
-    }
-
-    .header{
-      font-size: 4rem;
-      font-weight: bold;
-      color:#3498db;
-      background: linear-gradient(to left, #3498db, #2980b9);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      margin-left: 1rem;
-      margin-right: 3rem;
-      padding-left: 5%;
-      padding-top: 5%;
-    }
-
-    #columns div h3{
-      margin:1rem;
-      background: #34495e;
-      width: 12rem;
-      border-radius: 6px;
-      padding: 0.3rem;
-      align-items: center;
-    }
-
-    #columns{
-      display: flex;
-      padding: 5%;
-      align-items: center;
-    }
-
-    /*less than 700px make 1 column*/
-    @media only screen and (max-width: 700px){
-      #colums{
-        flex-direction: column;
-      }
-    }
-  </style>
 
 </ion-content>

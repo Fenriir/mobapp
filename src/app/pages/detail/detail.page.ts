@@ -31,6 +31,7 @@ export class DetailPage implements OnInit {
   multi_classing=[];
   prerequisites=[];
   multi_proficiencies=[];
+  spellcasting = [];
 
   constructor(
     private placeService: PlacesService
@@ -64,6 +65,7 @@ export class DetailPage implements OnInit {
     this.multi_classing = this.DataClass.multi_classing;
     this.prerequisites = this.DataClass.multi_classing.prerequisites;
     this.multi_proficiencies = this.DataClass.multi_classing.proficiencies;
+    this.spellcasting = this.DataClass.spellcasting.spellcasting_ability.name;
   }
   
 }

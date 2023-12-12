@@ -1,0 +1,80 @@
+.sideBySide{
+  //display: flex;
+  flex-wrap: wrap; 
+  //margin-top: 1rem;
+  background-color: black;
+  margin:auto;
+  align-items: center;
+}
+
+.obr{
+  display: flex;
+  background-color: black;
+  align-items: center;
+}
+
+img{
+  width: 200px;
+}
+
+.sideBySide h1{
+    text-align: center;
+}
+
+  .detailImage{
+    width:150px;
+  }
+
+  .header{
+    font-size: 3rem;
+    font-weight: bold;
+    color:#5E548E;
+    background: linear-gradient(to left, #9F86C0, #BE95C4);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-left: 2rem;
+    margin-right: 2rem;
+    padding-left: 5%;
+    padding-top: 3%;
+  }
+
+  .h2{
+    padding: 2%;
+    padding-bottom: 1%;
+    margin:auto;
+    text-align: center;
+  }
+
+  #columns div h3{
+    margin:auto;
+    background: #be95c489;
+    width: 80%;
+    border-radius: 6px;
+    padding: 1.5%;
+    margin-top: 2%;
+    margin-bottom: 2%;
+    align-items: center;
+  }
+
+  #columns caption, h4{
+    margin:auto;
+    padding: 2%;
+  }
+
+  #columns{
+    display: flex;
+    padding: 5%;
+    align-items: center;
+    background-color: black;
+  }
+
+  .detchar{
+    text-align: center;
+  }
+
+  /*less than 700px make 1 column*/
+  @media only screen and (max-width: 700px){
+    #colums{
+      flex-direction: column;
+    }
+  }

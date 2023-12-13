@@ -2,13 +2,47 @@
     height: 15px;
     width: 15px;
     margin: 0 2px;
-    background-color: #bbbbbb;
+    background-color: #e0bfd1;
     border: none;
     border-radius: 50%;
     display: inline-block;
     opacity: 0.5;
   }
+
+  :host {
+    ion-input {
+      --border-color:#9F86C0; ; /* Change the default underline color */
+      --highlight-color-invalid: red; /* Change the color when the input is invalid */
+      --highlight-color-valid: #9F86C0; /* Change the color when the input is valid */
+    }
+  }
+
+  .pole{
+    display: inline-block;
+    border-bottom: 3px solid #9F86C0;
+    text-align: center;
+    --highlight-color-focused:#BE95C4;
+    --placeholder-color:#BE95C4;
+  }
   
+  .create{
+    color: #231942;
+    --ion-color-primary:#9F86C0;
+    position: relative;
+    display: block;
+    margin: auto;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    box-sizing: border-box;
+  }
+  
+  .p{
+    padding-left: 1rem;
+    padding-top: 1rem;
+    margin:0;
+    // text-align: center;
+  }
+
   /* Mark the active step: */
   .step.active {
     opacity: 1;
@@ -16,12 +50,14 @@
   
   /* Mark the steps that are finished and valid: */
   .step.finish {
-    background-color: #04AA6D;
+    background-color: #9F86C0;
   }
 
  .x{
-    padding:1%;
-    //align-items: center;
+    margin-left: 89%;
+    --ion-color-primary:#9F86C0;
+    color: #231942;
+    clip-path: circle(40%);
   }
 
   .col{
@@ -48,4 +84,10 @@
 
   .name{
     align-items: center;
+  }
+
+  .name p{
+    text-align: center;
+    font-size: 1.5rem;
+    margin:0;
   }

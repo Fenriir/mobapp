@@ -1,12 +1,14 @@
-<p>
+<p class="p">
   Create new charachter
 </p>
 
 <ion-content>
   <ion-button (click)="dismissModal()" class="x">X</ion-button>
-
+    <div class="name">
+      <p>Name</p>
+      <ion-input placeholder="Enter name" type="text" [(ngModel)]="inputed_word" text-right id="input" class="pole"></ion-input>
+    </div>
     <ion-list class="col">
-      <ion-input type="text" [(ngModel)]="inputed_word" text-right id="input" class="name"></ion-input>
       <div class="col1">
         <h3>Races</h3>
         <ion-radio-group [(ngModel)]="rasa">
@@ -29,7 +31,7 @@
         </div> 
     </ion-list>
 
-    <ion-button (click)="submit()">Create</ion-button>
+    <ion-button class="create" (click)="submit()">Create</ion-button>
  </ion-content>
 
 

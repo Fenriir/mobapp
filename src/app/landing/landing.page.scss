@@ -1,0 +1,32 @@
+ion-content{
+    --ion-background-color:#9F86C0;
+    --background:url("pozadi_dnd.jpg") ;
+    background-position: center center;
+}
+
+h1{
+    font-family: VecnaBold;
+    text-align: center;
+    margin-top: 33rem;
+    color: #88559d;
+    text-shadow:  0px 0px 2px #c8b4e2d6, 0 0 2px #c8b4e2d6;
+}
+
+ion-button{
+    --background:url("dnd.jpg") center center;
+    --ion-color-primary:black;
+    filter: blur(1.5px);
+    filter: grayscale(5%);
+    background-position: center center;
+    width : 150px ; 
+    height : 150px;
+    position: relative;
+    display: block;
+    margin: auto;
+    margin-top: 2rem;
+    box-sizing: border-box;
+    // line-height: 150px;
+    -webkit-clip-path: polygon(50% 0%, 95% 25%, 95% 75%, 50% 100%, 5% 75%, 5% 25%);
+    clip-path: polygon(50% 0%, 95% 25%, 95% 75%, 50% 100%, 5% 75%, 5% 25%);
+}
+

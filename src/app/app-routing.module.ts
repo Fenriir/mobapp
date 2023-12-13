@@ -8,7 +8,7 @@ const routes: Routes = [
   },
   {
     path: '',
-    redirectTo: 'home',
+    redirectTo: 'landing',
     pathMatch: 'full'
   },
   {
@@ -19,6 +19,10 @@ const routes: Routes = [
   {
     path: 'detailb',
     loadChildren: () => import('./pagesb/detailb/detailb.module').then( m => m.DetailbPageModule)
+  },
+  {
+    path: 'landing',
+    loadChildren: () => import('./landing/landing.module').then( m => m.LandingPageModule)
   },
 ];
 

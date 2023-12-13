@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ModalController } from '@ionic/angular';
 import { Preferences } from '@capacitor/preferences';
-//import { PlacesService } from 'src/app/services/places/places.service';
+import { AlertController } from '@ionic/angular';
 
 @Component({
   selector: 'app-countries-modal',
@@ -16,11 +16,11 @@ export class CountriesModalComponent {
   inputed_word: string = "";
   apiChoice: string = "";
 
-  rasa: string = "";
-  classa: string = "";
+  rasa: string = "Human";
+  classa: string = "Fighter";
   
 //,private placeService: PlacesService
-  constructor(private modalCTRL: ModalController) {
+  constructor(private modalCTRL: ModalController, private alertCTRL: AlertController) {
     this.race = [
     { label: "Dragonborn", checked: false},
     { label: "Dwarf", checked: false},
@@ -80,7 +80,18 @@ export class CountriesModalComponent {
     this.modalCTRL.dismiss(null, "cancel");
   }
 
-  submit(){
+  async submit(){
+
+    if(this.inputed_word.trim().length < 1) {
+      const alert = await this.alertCTRL.create({
+        header: 'Error',
+        message: 'You must input a name',
+        buttons: ['OK']
+      });
+      await alert.present();
+      return;
+    }
+
     const raceItems = this.race.filter((item)=>item.checked);
     const classItems = this.class.filter((item)=>item.checked);
 

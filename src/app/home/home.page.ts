@@ -98,31 +98,7 @@ export class HomePage {
 
         console.warn(this.countriesDataArray);
 
-        // const saveStoredItems = async() =>{
-        //   await Preferences.set({
-        //     key: "homeFetchData",
-        //     value: JSON.stringify(this.countriesDataArray)
-        //   });
-        // }
-
-        // saveStoredItems();
       });
-      // this.httpClient.get(url_classes).subscribe(res2 => {
-      //   console.log(res2);
-      //   this.countriesDataArray.push({
-      //     name:   this.curr_name,
-      //     class:  res2,
-      //   });
-
-      //   const saveStoredItems = async() =>{
-      //     await Preferences.set({
-      //       key: "homeFetchData",
-      //       value: JSON.stringify(this.countriesDataArray)
-      //     });
-      //   }
-
-      //   saveStoredItems();
-      // });
     }
      console.log("Load data from API");
   }

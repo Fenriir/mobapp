@@ -103,27 +103,20 @@ export class CountriesModalComponent {
     }
 
     saveStoredItems();
-  //   this.modalCTRL.dismiss([raceItems],"location");
- // this.modalCTRL.dismiss({raceItems: raceItems, classItems : classItems},"location");
+    
     var inputed = {
       name: this.inputed_word,
       race: this.rasa, 
       class: this.classa,
     }
-   // console.log(inputed.race);
-  // if (this.inputed_word.trim() !="")
+
    if (inputed.name.trim() !="")
       this.modalCTRL.dismiss([inputed], "location");
     else
     this.modalCTRL.dismiss([inputed], "error");
   }
 
-  
 
-  // this.prof_num = this.allData.classes.name.proficiency_choices; //[].choose
-  //   this.proficiencies = this.allData.classes.name.proficiency_choices; //[].from.options[].item.name
-  //   this.equip_num = this.allData.classes.name.starting_equipment_options; //[].choose
-  //   this.equip = this.allData.classes.name.starting_equipment_options; //[].from.options[].of.name
 
   getRaces(){
      return [
